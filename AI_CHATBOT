@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+#include<algorithm>
+#include<math.h>
+#include<string>
+using namespace std;
+int main(){
+    int t=1;
+    while(t--){
+         unordered_map<string,string>d;
+    string s;
+    transform(s.begin(),s.end(),s.begin(),::tolower);
+    cout<<"chatBOT: "<<" "<<"Welcome user , i am a chatbot! "<<endl;
+    while(true)
+    {  
+        cout<<"Your message: ";
+        getline(cin,s);
+        transform(s.begin(),s.end(),s.begin(),::tolower);
+        if(s=="hyy"||s=="hello "||s=="hey")
+        {
+            cout<<"chatBOT:"<<" "<<"Hello ! How can I help you ?"<<endl;
+        }
+        else if(s=="how are you!"||s=="are you ok!")
+        {
+            cout<<"chatBOT:"<<" "<<" Sorry !As a chatbot i have no emotional states"<<endl;
+        }
+        else if(s=="what's my name")
+        {
+            if(d.find("name")!=d.end())
+            {
+                cout<<"chatBOT:"<<" "<<"Your name is "<<d["name"]<<endl;
+            }
+            else
+            {
+                cout<<"chatBOT:"<<" "<<"Sorry you didn't tell me your name yet. Tell me your name"<<endl;
+            }
+        } else if(s.find("my name is")!=string::npos)
+            {
+             size_t pos=s.find("my name is");
+             string name =s.substr(pos+11);
+             d["name"]= name;
+             cout<<"BOT:"<<" "<<"Nice to meet you "<<name<<endl; 
+        }
+        else if(s=="okk byy"||s=="see you later"||s=="later")
+        {
+            cout<<"chatBOT:"<<" "<<" Okk Bye!";
+            break;
+        }
+        else
+        {
+            cout<<"chatBOT:"<<" "<<"I didn't get that , sorry!"<<endl;
+        }
+    }
+    
+    }
+    return 0;
+}
